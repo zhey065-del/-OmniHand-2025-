@@ -28,9 +28,12 @@ ros2 pkg create --build-type ament_python hand_controller --dependencies rclpy t
 我们将创建一个名为 hand_mover.py 的文件，让手在空中做圆周运动。
 
 cd hand_controller/hand_controller
+
 使用你喜欢的编辑器（如 gedit 或 code）创建并打开文件：
 
 gedit hand_mover.py
+
+
 复制此代码进入py文件
 
 import rclpy
@@ -86,22 +89,32 @@ if __name__ == '__main__':
 
 第三步：配置安装信息
 打开 setup.py：
+
 cd ~/omnihand_pro_ws/src/hand_controller
+
 gedit setup.py
 
 在 entry_points 的 'console_scripts': [ 这一行后面，添加如下内容：
+
 'hand_mover = hand_controller.hand_mover:main',//(新文件中已添加)
 
 第四步：编译并运行
 回到工作空间根目录进行编译：
+
 cd ~/omnihand_pro_ws
+
 colcon build --packages-select hand_controller
+
 source install/setup.bash
+
 **启动你的灵巧手 RViz**
+
 ros2 launch omnihand_pro_description omnihand_pro_description.launch.py
 
 在另一个新终端启动脚本：
+
 source ~/omnihand_pro_ws/install/setup.bash
+
 ros2 run hand_controller hand_mover
 
 第五步：在 RViz 中见证奇迹
