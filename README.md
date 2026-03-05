@@ -36,12 +36,12 @@ gedit hand_mover.py
 
 复制此代码进入py文件
 
+
 import rclpy
 from rclpy.node import Node
 from tf2_ros import TransformBroadcaster
 from geometry_msgs.msg import TransformStamped
 import math
-
 class HandMover(Node):
     def __init__(self):
         super().__init__('hand_mover_node')
